@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"noto1998.github.io","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta name="description" content="弄好了hexo框架，下一步就是弄外观了，我的好朋友yaolaotou曾说过：  程序员折腾字体、外观，比写代码还起劲，后面不记得了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用NexT主题">
+<meta property="og:url" content="https://noto1998.github.io/2020/10/23/how-to-use-theme-next/index.html">
+<meta property="og:site_name" content="Noto&#39;s Blog">
+<meta property="og:description" content="弄好了hexo框架，下一步就是弄外观了，我的好朋友yaolaotou曾说过：  程序员折腾字体、外观，比写代码还起劲，后面不记得了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-23T13:09:02.000Z">
+<meta property="article:modified_time" content="2020-10-24T02:30:29.761Z">
+<meta property="article:author" content="Noto">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://noto1998.github.io/2020/10/23/how-to-use-theme-next/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何使用NexT主题 | Noto's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Noto's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Noto"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Noto</p>
+  <div class="site-description" itemprop="description">我的个人博客，记录学习与生活点滴。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Noto1998" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Noto1998" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/Notoj" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;Notoj" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/1315204" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;1315204" rel="noopener" target="_blank"><i class="fa fa-user fa-fw"></i>Bilibili</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://noto1998.github.io/2020/10/23/how-to-use-theme-next/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Noto">
+      <meta itemprop="description" content="我的个人博客，记录学习与生活点滴。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Noto's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何使用NexT主题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-23 21:09:02" itemprop="dateCreated datePublished" datetime="2020-10-23T21:09:02+08:00">2020-10-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-24 10:30:29" itemprop="dateModified" datetime="2020-10-24T10:30:29+08:00">2020-10-24</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>弄好了hexo框架，下一步就是弄外观了，我的好朋友yaolaotou曾说过：</p>
+<blockquote>
+<p>程序员折腾字体、外观，比写代码还起劲，后面不记得了。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>一开始我只想自己简单装饰一下，复制一份默认主题看一看代码，里面还在用jQuery，感觉有些年代了。想到很多hexo文章都提到next主题，那就看一看吧，一看确实很简约很戳我，就决定来折腾一下。</p>
+<p>我一开始从文章里点开了这个<a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">地址</a>，乍看没什么毛病，文章里也是直接clone这个链接，但我多看了眼旁边的官网，发现了一行大字：</p>
+<blockquote>
+<p>The upstream repository of theme NexT has been changed.</p>
+</blockquote>
+<p>原来next主题已经换了新的<a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">地址</a>，而原来的readme.md文件并没有更新，看star数可能有一部分人都不知道这回事，比如很多人可能从文章里直接复制clone代码。</p>
+<p>一番了解，原来next主题一共有三个仓库，一开始是个人项目（来自厦门的开发者），后来迁移到社群开发，算是一次意外的发现，也给自己一个提醒，要多留意文章的时效性。</p>
+<p>咳咳，该说回正题了，目前版本的安装方法是：</p>
+<p><code>npm install hexo-theme-next</code>（要多留意文章时效性哦）</p>
+<p>现在不再在<code>\themes\</code>中存放文件夹，而是作为一个包安装在<code>\node_modules\</code>中，不需要任何依赖。之后记得在<code>_config.yml</code>中设置<code>theme: next</code>，不然现在执行hexo命令会报错（我傻傻的以为是安装出错了，其实只是没设置正确而已）。</p>
+<p>现在就可以看到应用后的界面了，后续美化可以看next<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/">官方文档</a>，next主题提供了很强大的可定制内容，像我目前就设置了<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/custom-pages.html">自定义页面</a>，还可以搞一搞CDN，图床什么的，暂时还没研究。</p>
+<p>另外，推荐用<a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration.html#Alternate-Theme-Config">Alternate Theme Config</a>来配置主题而不是直接更改<code>_config.yml</code>文件，简单来说就是创建一个<code>_config.next.yml</code>文件，并复制主题里的<code>_config.yml</code>的内容过来（现在在<code>\node_modules\</code>中），这样不会改动到原来的<code>_config.yml</code>文件。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Noto
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://noto1998.github.io/2020/10/23/how-to-use-theme-next/" title="如何使用NexT主题">https://noto1998.github.io/2020/10/23/how-to-use-theme-next/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/23/how-to-use-hexo/" rel="prev" title="如何使用hexo">
+                  <i class="fa fa-chevron-left"></i> 如何使用hexo
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/27/js-learning-notes-1/" rel="next" title="javascript梳理笔记1">
+                  javascript梳理笔记1 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-fish"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Noto</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
