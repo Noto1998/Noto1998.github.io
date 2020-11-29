@@ -22,17 +22,18 @@
     var CONFIG = {"hostname":"noto1998.github.io","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="最近在整理《Two Dimensions》的代码，之后可能会写一篇详细介绍。整理代码上改进了很多碰撞检测相关的代码，在这里总结一下。">
+  <meta name="description" content="最近在整理《Two Dimensions》的代码，之后可能会写一篇详细介绍。整理代码时整合调整了很多碰撞检测相关的代码，在这里总结一下，给自己做个思路备忘。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础形状的碰撞检测">
 <meta property="og:url" content="https://noto1998.github.io/2020/11/17/base-shape-collision/index.html">
 <meta property="og:site_name" content="Noto&#39;s Blog">
-<meta property="og:description" content="最近在整理《Two Dimensions》的代码，之后可能会写一篇详细介绍。整理代码上改进了很多碰撞检测相关的代码，在这里总结一下。">
+<meta property="og:description" content="最近在整理《Two Dimensions》的代码，之后可能会写一篇详细介绍。整理代码时整合调整了很多碰撞检测相关的代码，在这里总结一下，给自己做个思路备忘。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-17T05:16:45.000Z">
-<meta property="article:modified_time" content="2020-11-17T06:28:11.392Z">
+<meta property="article:modified_time" content="2020-11-29T09:46:47.160Z">
 <meta property="article:author" content="Noto">
 <meta property="article:tag" content="math">
+<meta property="article:tag" content="gameDev">
 <meta name="twitter:card" content="summary">
 
 
@@ -171,7 +172,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#rectangle-with-point"><span class="nav-number">1.</span> <span class="nav-text">rectangle with point</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rectangle-with-line"><span class="nav-number">2.</span> <span class="nav-text">rectangle with line</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rectangle-with-rectangle"><span class="nav-number">3.</span> <span class="nav-text">rectangle with rectangle</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Line-With-Point"><span class="nav-number">1.</span> <span class="nav-text">Line With Point</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rect-With-Point"><span class="nav-number">2.</span> <span class="nav-text">Rect With Point</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rect-With-Line"><span class="nav-number">3.</span> <span class="nav-text">Rect With Line</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Rect-With-Rect"><span class="nav-number">4.</span> <span class="nav-text">Rect With Rect</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Ball-With-Point"><span class="nav-number">5.</span> <span class="nav-text">Ball With Point</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Ball-With-Line"><span class="nav-number">6.</span> <span class="nav-text">Ball With Line</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -192,7 +193,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -279,10 +280,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-11-17 13:16:45 / 修改时间：14:28:11" itemprop="dateCreated datePublished" datetime="2020-11-17T13:16:45+08:00">2020-11-17</time>
+      <time title="创建时间：2020-11-17 13:16:45" itemprop="dateCreated datePublished" datetime="2020-11-17T13:16:45+08:00">2020-11-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-29 17:46:47" itemprop="dateModified" datetime="2020-11-29T17:46:47+08:00">2020-11-29</time>
+      </span>
 
   
 </div>
@@ -294,21 +301,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>最近在整理《Two Dimensions》的代码，之后可能会写一篇详细介绍。整理代码上改进了很多碰撞检测相关的代码，在这里总结一下。</p>
+        <p>最近在整理《Two Dimensions》的代码，之后可能会写一篇详细介绍。整理代码时整合调整了很多碰撞检测相关的代码，在这里总结一下，给自己做个思路备忘。</p>
 <a id="more"></a>
 
-<h5 id="rectangle-with-point"><a href="#rectangle-with-point" class="headerlink" title="rectangle with point"></a>rectangle with point</h5><p>这个简单，判断坐标x在水平范围里，且y在垂直范围里：</p>
+<p>示例代码使用lua语法，三元运算符的部分是伪代码，因为lua没有三元运算符……</p>
+<p>因为在love2d引擎中，y坐标轴指向下方，和常识是反着的，所以在源代码中<code>bottom &gt; top</code>其实是<code>bottom </code>在<code>top</code>下方，可能难以阅读，本文的代码都改成了正常坐标系。</p>
+<h5 id="Line-With-Point"><a href="#Line-With-Point" class="headerlink" title="Line With Point"></a>Line With Point</h5><p>直线与点的碰撞，我使用的是逐个像素检测的方法，性能一般，因为用的少，凑合用下：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> checkTime = lineLen</span><br><span class="line"></span><br><span class="line"><span class="comment">-- getVector可自行实现</span></span><br><span class="line"><span class="keyword">local</span> lenPartX = getVector(lineRadian, lineLen).x / checkTime</span><br><span class="line"><span class="keyword">local</span> lenPartY = getVector(lineRadian, lineLen).y / checkTime</span><br><span class="line"></span><br><span class="line"><span class="comment">-- check from point1 to point 2</span></span><br><span class="line"><span class="keyword">for</span> i = <span class="number">0</span>, checkTime <span class="keyword">do</span></span><br><span class="line">	<span class="keyword">local</span> checkX = lineX + lenPartX</span><br><span class="line">	<span class="keyword">local</span> checkY = lineY + lenPartY</span><br><span class="line"></span><br><span class="line">	<span class="comment">-- checkBorder default is 1</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">math</span>.<span class="built_in">abs</span>(pointX - checkX) &lt;= checkBorder <span class="keyword">and</span></span><br><span class="line">       <span class="built_in">math</span>.<span class="built_in">abs</span>(pointY - checkY) &lt;= checkBorder <span class="keyword">then</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="Rect-With-Point"><a href="#Rect-With-Point" class="headerlink" title="Rect With Point"></a>Rect With Point</h5><p>这个非常简单，判断坐标x在水平范围里，且y在垂直范围里：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 括号加不加都一样</span></span><br><span class="line"><span class="keyword">if</span> (x &gt; left <span class="keyword">and</span> x &lt; right) <span class="keyword">and</span> (y &lt; top <span class="keyword">and</span> y &gt; bottom) <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-<p>（代码用lua语法，很像伪代码看着也方便，下同）</p>
-<p>（因为在love2d引擎中，y坐标轴指向下方，和常识是反着的，所以在源代码中<code>bottom &gt; top</code>其实是<code>bottom </code>在<code>top</code>下方，可能难以阅读，本文的代码都改成了正常坐标系，下同）</p>
-<h5 id="rectangle-with-line"><a href="#rectangle-with-line" class="headerlink" title="rectangle with line"></a>rectangle with line</h5><p>我的项目中只用到了垂直直线和水平直线：</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 直线从(x1，y1)到(x2，y2)</span></span><br><span class="line"><span class="comment">-- 针对垂直直线</span></span><br><span class="line"><span class="keyword">if</span> x1 == x2 <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">local</span> yTop = y1 &gt; y2 ? y1 : y2</span><br><span class="line">    <span class="keyword">local</span> yBottom = y1 &lt; y2 ? y1 : y2</span><br><span class="line">    <span class="comment">-- 伪代码，lua其实没有三元表达式……</span></span><br><span class="line">    <span class="keyword">if</span> (bottom &lt; yTop <span class="keyword">and</span> top &gt; yBottom) <span class="keyword">and</span></span><br><span class="line">   	   (x1 &gt; left <span class="keyword">and</span> x1 &lt; right) <span class="keyword">then</span></span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 水平也是类似</span></span><br><span class="line"><span class="keyword">if</span> x1 == x2 <span class="keyword">then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="Rect-With-Line"><a href="#Rect-With-Line" class="headerlink" title="Rect With Line"></a>Rect With Line</h5><p>我的项目中只用到了垂直直线和水平直线：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 直线从(x1，y1)到(x2，y2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- check two points</span></span><br><span class="line"><span class="keyword">if</span> isRectWithPoint(point1) <span class="keyword">or</span> isRectWithPoint(point2) <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 针对垂直的直线</span></span><br><span class="line"><span class="keyword">if</span> x1 == x2 <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">local</span> yTop = y1 &gt; y2 ? y1 : y2</span><br><span class="line">    <span class="keyword">local</span> yBottom = y1 &lt; y2 ? y1 : y2</span><br><span class="line">    <span class="keyword">if</span> (bottom &lt; yTop <span class="keyword">and</span> top &gt; yBottom) <span class="keyword">and</span></span><br><span class="line">   	   (x1 &gt; left <span class="keyword">and</span> x1 &lt; right) <span class="keyword">then</span></span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 水平直线类似</span></span><br><span class="line"><span class="keyword">if</span> y1 == y2 <span class="keyword">then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 一定穿过矩形(因为上面做过两个点的检测)，且为斜线的情况</span></span><br><span class="line"><span class="comment">-- todo</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="rectangle-with-rectangle"><a href="#rectangle-with-rectangle" class="headerlink" title="rectangle with rectangle"></a>rectangle with rectangle</h5><p>这个是参加game jam时，临时补课love2d从教程上学来的，很实用：</p>
+<h5 id="Rect-With-Rect"><a href="#Rect-With-Rect" class="headerlink" title="Rect With Rect"></a>Rect With Rect</h5><p>这个是参加game jam时从教程上学来的，很简单很实用：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- rectangle1 and rectangle2</span></span><br><span class="line"><span class="keyword">if</span> right1 &gt; left2 <span class="keyword">and</span> left1 &lt; right2 <span class="keyword">and</span> top1 &gt; bottom2 <span class="keyword">and</span> bottom1 &lt; top2 <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-<p>其实也有其他的检测方法，比如有通过算出中心点然后和对角线长度进行比较，但这个方法的好处是简单易记，且能正常检测相交和包含情况</p>
+<p>其实也有其他的检测方法，比如有通过算出中心点然后和对角线长度进行比较，但这个方法的好处是简单易记，且能正常检测相交和包含情况。</p>
+<h5 id="Ball-With-Point"><a href="#Ball-With-Point" class="headerlink" title="Ball With Point"></a>Ball With Point</h5><p>检测圆心与点的距离，然后将距离与半径进行比较即可</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- getDistance可自行实现</span></span><br><span class="line"><span class="comment">-- 我的实现是用勾股定理 math.sqrt(disX ^ 2 + disY ^ 2)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> dis = getDistance(ballX, ballY, pointX, pointY)</span><br><span class="line"><span class="keyword">return</span> dis &lt; ballRadius</span><br></pre></td></tr></table></figure>
+
+<p>这个方法系列是旧代码沿用下来的，写博客时才发现其实应该叫circle不叫ball，回头改下😂</p>
+<h5 id="Ball-With-Line"><a href="#Ball-With-Line" class="headerlink" title="Ball With Line"></a>Ball With Line</h5><p>和Rectangle With Line的例子一样，用到了前面写的方法，感觉很爽</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> lineX2 = lineX + getVector(lineRadian, lineLen).x</span><br><span class="line"><span class="keyword">local</span> lineY2 = lineY + getVector(lineRadian, lineLen).y</span><br><span class="line"></span><br><span class="line"><span class="comment">-- check two points</span></span><br><span class="line"><span class="keyword">if</span> isBallWithPoint(point1) <span class="keyword">or</span> isBallWithPoint(point2) <span class="keyword">then</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- points not in circle, so the line must be goes through circle</span></span><br><span class="line"><span class="keyword">local</span> bigRadian = getRadian(lineX, lineY, ballX, ballY)</span><br><span class="line"><span class="keyword">local</span> dis = getDistance(lineX, lineY, ballX, ballY)</span><br><span class="line"><span class="keyword">local</span> smallRadian = lineRadian - bigRadian</span><br><span class="line"><span class="keyword">local</span> disToCenter = <span class="built_in">math</span>.<span class="built_in">sin</span>(smallRadian) * dis</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> disToCenter &lt; ballRadius <span class="keyword">then</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>在直线必然穿过圆的情况，只需要检测直线与圆心的距离，然后与半径比较即可。</p>
+<p>方法很多，比如利用投影计算之类的，我用的是勾股定理，写的很绕自己也看了一会，也许还可以用余弦定理之类的。</p>
+<p>其实这部分也应该抽出来成一个方法，回头安排上。</p>
 
     </div>
 
@@ -336,6 +356,7 @@
 
           <div class="post-tags">
               <a href="/tags/math/" rel="tag"># math</a>
+              <a href="/tags/gameDev/" rel="tag"># gameDev</a>
           </div>
 
         
