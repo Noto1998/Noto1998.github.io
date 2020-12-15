@@ -22,22 +22,18 @@
     var CONFIG = {"hostname":"noto1998.github.io","root":"/","scheme":"Gemini","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
 
-  <meta name="description" content="最近有些空闲时间，打算梳理下javascript知识，记录下一些之前没注意的和有新收获的点。后续可能继续更新。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="javascript梳理笔记1">
-<meta property="og:url" content="https://noto1998.github.io/2020/10/27/js-learning-notes-1/index.html">
+  <meta name="description" content="我的个人博客，记录学习与生活点滴。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Noto&#39;s Blog">
+<meta property="og:url" content="https://noto1998.github.io/archives/page/2/index.html">
 <meta property="og:site_name" content="Noto&#39;s Blog">
-<meta property="og:description" content="最近有些空闲时间，打算梳理下javascript知识，记录下一些之前没注意的和有新收获的点。后续可能继续更新。">
+<meta property="og:description" content="我的个人博客，记录学习与生活点滴。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-27T06:27:29.000Z">
-<meta property="article:modified_time" content="2020-12-03T04:39:37.706Z">
 <meta property="article:author" content="Noto">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://noto1998.github.io/2020/10/27/js-learning-notes-1/">
+<link rel="canonical" href="https://noto1998.github.io/archives/page/2/">
 
 
 <script class="page-configurations">
@@ -45,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>javascript梳理笔记1 | Noto's Blog</title>
+  <title>归档 | Noto's Blog</title>
   
 
 
@@ -165,7 +161,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -177,7 +173,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#for-in%E5%92%8Cfor-of"><span class="nav-number">1.</span> <span class="nav-text">for in和for of</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#break-label%E5%92%8Ccontinue-label"><span class="nav-number">2.</span> <span class="nav-text">break label和continue label</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#symbol%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">symbol类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB"><span class="nav-number">4.</span> <span class="nav-text">杂七杂八</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -249,132 +244,56 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner archive posts-collapse">
       
 
       
 
   
-
-
-<div class="post-block">
   
   
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <span class="collection-header">嗯..! 目前共计 11 篇日志。 继续努力。</span>
+      </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://noto1998.github.io/2020/10/27/js-learning-notes-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Noto">
-      <meta itemprop="description" content="我的个人博客，记录学习与生活点滴。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Noto's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          javascript梳理笔记1
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-27 14:27:29" itemprop="dateCreated datePublished" datetime="2020-10-27T14:27:29+08:00">2020-10-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-12-03 12:39:37" itemprop="dateModified" datetime="2020-12-03T12:39:37+08:00">2020-12-03</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>最近有些空闲时间，打算梳理下javascript知识，记录下一些之前没注意的和有新收获的点。后续可能继续更新。</p>
-<a id="more"></a>
-
-<p>之前过了一遍菜鸟教程，因为有一点其他语言基础（java、c#），入门还是很快的，也意识到js很有深度，多多学习。菜鸟的教程是有es6标准的，是很不错的入门教程。</p>
-<p>今天尝试用下md的标题~</p>
-<p>2020.11.3更新，简单啃完了菜鸟的js教程，发现后面的部分有点老，比如会有jquery的内容，自己学习时应配合其他新教程一同食用。</p>
-<h5 id="for-in和for-of"><a href="#for-in和for-of" class="headerlink" title="for in和for of"></a>for in和for of</h5><p>首先是复习时才发现，自己一直记错了一个很基础的东西（虽说实际用的话应该马上就会报错马上就会发现），那就是在js中，<code>for in</code>写法得到的仍是下标（只是不用自己设定跳出条件），而得到成员的循环方法在js对应写法应该是<code>for of</code>。</p>
-<p>（java是<code>for :</code>，思索了下，应该是和python或C#的<code>for in</code>搞混了，突然意识到我们学校同时教这么多语言……心智负担拉满）</p>
-<h5 id="break-label和continue-label"><a href="#break-label和continue-label" class="headerlink" title="break label和continue label"></a>break label和continue label</h5><p>这个点理解倒是很简单，为代码块进行标签，可用于跳出，直接看代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list: &#123;</span><br><span class="line">    do something 1......</span><br><span class="line">    do something 2......</span><br><span class="line">    break list;</span><br><span class="line">    do something 3......</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 结果执行了1、2</span><br></pre></td></tr></table></figure>
-
-<p>令我迷惑的是不太确定这个知识点叫什么，菜鸟教程上是在讲break和continue时提了一嘴，小标题叫JavaScript标签，但是网络检索JavaScript标签大多是讲DOM操作的……想象了下在实际开发应该是蛮有用的，比如比较长的一段代码块里，用条件判断跳过一些部分，值得记一下。</p>
-<h5 id="symbol类型"><a href="#symbol类型" class="headerlink" title="symbol类型"></a>symbol类型</h5><p>因为算是“基本变量类型”，所以觉得应该好好了解下。</p>
-<p>一开始了解到js居然没有枚举很是震惊，听到symbol类型的说明时以为会是替代品，但了解完和想象的不太一样……概念很简单，可以生成唯一值的变量，具体可看这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59671761">文章</a>，平常开发可能比较少用。</p>
-<h5 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h5><p>一些比较短的零碎知识，给自己做个备忘。</p>
-<p>一元运算符+，可用于转换<code>number</code>类型。</p>
-<p>==只校验值，===会校验类型和值。</p>
-<p>我们常用的<code>src=#</code>里的<code>#</code>，其实是用来快速定位的，会改变url，更严谨的做法可以用<code>void(0)</code>。</p>
-<p>严格模式，能降低心智负担的都是好东西~</p>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2020</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2020-10-22T20:26:04+08:00"
+              content="2020-10-22">
+          10-22
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/10/22/first-test/" itemprop="url">
+            <span itemprop="name">第一条测试</span>
+          </a>
+      </div>
 
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>Noto
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://noto1998.github.io/2020/10/27/js-learning-notes-1/" title="javascript梳理笔记1">https://noto1998.github.io/2020/10/27/js-learning-notes-1/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
-              <a href="/tags/js/" rel="tag"># js</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2020/10/23/how-to-use-theme-next/" rel="prev" title="如何使用NexT主题">
-                  <i class="fa fa-chevron-left"></i> 如何使用NexT主题
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2020/10/30/js-learning-notes-2/" rel="next" title="javascript梳理笔记2">
-                  javascript梳理笔记2 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
 
+    </div>
+  </div>
+  
+  
+  
 
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
